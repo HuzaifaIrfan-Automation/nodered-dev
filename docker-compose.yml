@@ -1,0 +1,14 @@
+services:
+  node-red:
+    image: nodered/node-red
+    container_name: mynodered
+    ports:
+      - "1880:1880"
+    volumes:
+      - node_red_data:/data
+    restart: unless-stopped
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+volumes:
+  node_red_data:
